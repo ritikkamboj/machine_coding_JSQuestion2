@@ -78,3 +78,9 @@ input[type="number"]::-webkit-outer-spin-button {
   display: none;
   background-color: orange;
 }
+.hour {
+  text-align: right;
+}
+.second {
+  text-align: left;
+}
