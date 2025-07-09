@@ -35,14 +35,38 @@
         startInterval()
     })
 
+
+    function stopInterval(state) {
+        console.log(state)
+
+        start.style.display = "block";
+        stop.style.display = "none"
+
+        // stop.innerText = state === "pause" ? "Continue" : "Start"
+
+        start.innerText = state === "pause" ? "Continue" : "Start"
+        clearInterval(countDownTimer);
+
+
+    }
     function timer() {
         // console.log("jai")
+        if (seconds.value > 60) {
+            minutes.value++;
+            seconds.value = seconds.value - 60
+        }
+        if (minutes.value > 60) {
+            hours.value++;
+            minutes.value = minutes.value - 60
+        }
+
         if ((hours.value) == 0 && (minutes.value) == 0 && (seconds.value) == 0) {
 
             hours.value = ""
             minutes.value = ""
             seconds.value = ""
-            clearInterval(countDownTimer)
+            // clearInterval(countDownTimer)
+            stopInterval()
         }
         else if (seconds.value != 0) {
             seconds.value = `${seconds.value < 10 ? "0" : ""}${seconds.value - 1}`
@@ -63,5 +87,17 @@
 
 
     }
+
+    stop.addEventListener("click", function () {
+
+        stopInterval("pause")
+    })
+
+    reset.addEventListener("click", function () {
+        hours.value = ""
+        minutes.value = ""
+        seconds.value = ""
+    })
+
 
 })()
