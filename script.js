@@ -97,6 +97,10 @@
         hours.value = ""
         minutes.value = ""
         seconds.value = ""
+
+
+        stopInterval()
+
     })
 
 
